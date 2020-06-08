@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html>
+    <title>C++ Language Tutorial</title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/technical.css" />
+    </head>
+
+    <body>
+        <nav id="navbar">
+            <header>C++ Programming Language Tutorial</header>
+            <a href="#Basics_of_c++" class="nav-link">Basics of C++</a>
+            <a href="#Structure_of_a_program" class="nav-link">Structure of a program</a>
+            <a href="#Variables_and_types" class="nav-link">Variables and types</a>
+            <a href="#Operators" class="nav-link">Operators</a>
+            <a href="#Basic_input/output" class="nav-link">Basic input/output</a>
+        </nav>
+
+        <main id="main-doc">
+            <img src="https://miro.medium.com/max/2476/1*mDKusLBkGKBWW4aycK4PCA.png" alt="C++ logo"/>                
+            <section class="main-section" id="Basics_of_c++">
+                <header>Basics of C++</header>
+                <p>These tutorials explain the C++ language from its basics up to the newest features introduced by C++11. Chapters have a practical orientation, with example programs in all sections to start practicing what is being explained right away.</p>
+            </section>
+
+            <!-- Issue with formatting code snippets display. Have to break out of normal indenting format to get code snippets the way I want. -->
+            <section class="main-section" id="Structure_of_a_program">
+                <header>Structure of a program</header>
+                    <p>The best way to learn a programming language is by writing programs. Typically, the first program beginners write is a program called "Hello World", which simply prints "Hello World" to your computer screen. Although it is very simple, it contains all the fundamental components C++ programs have:</p>
+        <code class="FCC-code"><pre>
+        #include &lt;iostream&gt;
+        int main () 
+        {
+            std::cout &lt;&lt; "Hello World!";
+        }</pre></code>
+                    <p>The left panel above shows the C++ code for this program. The right panel shows the result when the program is executed by a computer. The grey numbers to the left of the panels are line numbers to make discussing programs and researching errors easier. They are not part of the program.</p>
+                    
+                    <p>Let's examine this program line by line:</p>
+                        <dl>
+                        <dt>Line 1: <code>// my first program in C++</code></dt>
+                        <dd>
+                        Two slash signs indicate that the rest of the line is a comment inserted by the programmer but which has no effect on the behavior of the program. Programmers use them to include short explanations or observations concerning the code or program. In this case, it is a brief introductory description of the program.<br>
+                        </dd>
+                        <br>
+                        <dt>Line 2: <code>#include &lt;iostream&gt;</code></dt>
+                        <dd>Lines beginning with a hash sign (<code>#</code>) are directives read and interpreted by what is known as the <i>preprocessor</i>. They are special lines interpreted before the compilation of the program itself begins. In this case, the directive <code>#include &lt;iostream&gt;</code>, instructs the preprocessor to include a section of standard C++ code, known as <i>header iostream</i>, that allows to perform standard input and output operations, such as writing the output of this program (<samp>Hello World</samp>) to the screen.<br>
+                        </dd>
+                        <br>
+                        <dt>Line 3:  A blank line.</dt>
+                        <dd>Blank lines have no effect on a program.  They simply improve readability of the code.</dd>
+                        <br>
+                        <dt>Line 4: <code>int main ()</code>
+                        </dt><dd>This line initiates the declaration of a function. Essentially, a function is a group of code statements which are given a name: in this case, this gives the name "main" to the group of code statements that follow. Functions will be discussed in detail in a later chapter, but essentially, their definition is introduced with a succession of a type (<code>int</code>), a name (<code>main</code>) and a pair of parentheses (<code>()</code>), optionally including parameters.<br>
+                        <br>
+                        The function named <code>main</code> is a special function in all C++ programs; it is the function called when the program is run. The execution of all C++ programs begins with the <code>main</code> function, regardless of where the function is actually located within the code.</dd>
+                        <br>
+                        <dt>Lines 5 and 7: <code>{</code> and <code>}</code></dt>
+                        <dd>The open brace (<code>{</code>) at line 5 indicates the beginning of <code>main</code>'s function definition, and the closing brace (<code>}</code>) at line 7, indicates its end. Everything between these braces is the function's body that defines what happens when <code>main</code> is called. All functions use braces to indicate the beginning and end of their definitions.<br>
+                        </dd>
+                        <br>
+                        <dt>Line 6: <code>std::cout &lt;&lt; "Hello World!";</code></dt>
+                        <dd>
+                        This line is a C++ statement. A statement is an expression that can actually produce some effect. It is the meat of a program, specifying its actual behavior. Statements are executed in the same order that they appear within a function's body.<br>
+                        <br>
+                        This statement has three parts: First, <code>std::cout</code>, which identifies the <b>st</b>andar<b>d</b> <b>c</b>haracter <b>out</b>put device (usually, this is the computer screen). Second, the insertion operator (<code>&lt;&lt;</code>), which indicates that what follows is inserted into <code>std::cout</code>. Finally, a sentence within quotes ("Hello world!"), is the content inserted into the standard output.<br>
+                        <br>
+                        Notice that the statement ends with a semicolon (<code>;</code>). This character marks the end of the statement, just as the period ends a sentence in English.  All C++ statements must end with a semicolon character. One of the most common syntax errors in C++ is forgetting to end a statement with a semicolon.<br>
+                        </dd>
+                        </dl>
+                        You may have noticed that not all the lines of this program perform actions when the code is executed. There is a line containing a comment (beginning with <code>//</code>). There is a line with a directive for the preprocessor (beginning with <code>#</code>). There is a line that defines a function (in this case, the <code>main</code> function). And, finally, a line with a statements ending with a semicolon (the insertion into <code>cout</code>), which was within the block delimited by the braces ( <code>{ }</code> ) of the <code>main</code> function. <br>
+                        <br>
+                        The program has been structured in different lines and properly indented, in order to make it easier to understand for the humans reading it. But C++ does not have strict rules on indentation or on how to split instructions in different lines. For example, instead of <br>
+                        <br>
+        <code class="FCC-code"><pre>
+        &lt;style&gt;
+        int main () 
+        {
+            std::cout &lt;&lt; "Hello World!";
+        }
+        &lt;/style&gt;</pre></code>
+                        We could have written:<br>
+        <code class="FCC-code"><pre>
+        int main () { std::cout &lt;&lt; "Hello World!"; }</pre></code>
+                        all in a single line, and this would have had exactly the same meaning as the preceding code.<br>
+                        <br>
+                        In C++, the separation between statements is specified with an ending semicolon (<code>;</code>), with the separation into different lines not mattering at all for this purpose. Many statements can be written in a single line, or each statement can be in its own line. The division of code in different lines serves only to make it more legible and schematic for the humans that may read it, but has no effect on the actual behavior of the program.<br>
+                        <br>
+                        Now, let's add an additional statement to our first program:<br>
+        <code class="FCC-code"><pre>
+        // my second program in C++
+        #include &lt;iostream&gt;
+        
+        int main ()
+        {
+            std::cout &lt;&lt; "Hello World! ";
+            std::cout &lt;&lt; "I'm a C++ program";
+        }</pre></code>
+                        <br>
+                        In this case, the program performed two insertions into <code>std::cout</code> in two different statements. Once again, the separation in different lines of code simply gives greater readability to the program, since <code>main</code> could have been perfectly valid defined in this way:<br>
+                        <br>
+        <code class="FCC-code"><pre>
+        int main () { std::cout &lt;&lt; " Hello World! "; std::cout &lt;&lt; " I'm a C++ program "; }</pre></code>
+        <br>
+                        The source code could have also been divided into more code lines instead:<br>
+        <code class="FCC-code"><pre>
+        int main ()
+        {
+            std::cout &lt;&lt;
+            "Hello World!";
+            std::cout
+            &lt;&lt; "I'm a C++ program";
+        }</pre></code>
+                        <br>
+                        And the result would again have been exactly the same as in the previous examples.<br>
+                        <br>
+                        Preprocessor directives (those that begin by <code>#</code>) are out of this general rule since they are not statements. They are lines read and processed by the preprocessor before proper compilation begins. Preprocessor directives must be specified in their own line and, because they are not statements, do not have to end with a semicolon (<code>;</code>).<br>
+            </section>
+
+            <section class="main-section" id="Variables_and_types">
+                <header>Variables and types</header>
+                <p>The usefulness of the "Hello World" programs shown in the previous chapter is rather questionable. We had to write several lines of code, compile them, and then execute the resulting program, just to obtain the result of a simple sentence written on the screen. It certainly would have been much faster to type the output sentence ourselves.</p>
+                
+                <p>However, programming is not limited only to printing simple texts on the screen. In order to go a little further on and to become able to write programs that perform useful tasks that really save us work, we need to introduce the concept of variables.</p>
+                
+                <p>Let's imagine that I ask you to remember the number 5, and then I ask you to also memorize the number 2 at the same time. You have just stored two different values in your memory (5 and 2). Now, if I ask you to add 1 to the first number I said, you should be retaining the numbers 6 (that is 5+1) and 2 in your memory. Then we could, for example, subtract these values and obtain 4 as result.</p>
+                
+                <p>The whole process described above is a simile of what a computer can do with two variables. The same process can be expressed in C++ with the following set of statements:</p>
+        <code class="FCC-code"><pre>
+        a = 5;
+        b = 2;
+        a = a + 1;
+        result = a - b;</pre></code>
+                <ul>
+                    <li><p>Obviously, this is a very simple example, since we have only used two small integer values, but consider that your computer can store millions of numbers like these at the same time and conduct sophisticated mathematical operations with them.</p></li>
+                    <li><p>We can now define variable as a portion of memory to store a value.</p></li>
+                    <li><p>Each variable needs a name that identifies it and distinguishes it from the others. For example, in the previous code the variable names were a, b, and result, but we could have called the variables any names we could have come up with, as long as they were valid C++ identifiers.</p></li>
+                </ul>
+            </section>
+
+            <section class="main-section" id="Operators">
+                <header>Operators</header>
+                <p>Once introduced to variables and constants, we can begin to operate with them by using operators. What follows is a complete list of operators. At this point, it is likely not necessary to know all of them, but they are all listed here to also serve as reference.</p>
+                <h3>Assignment operator (=)</h3>
+                <p>The assignment operator assigns a value to a variable.</p>
+        <code class="FCC-code"><pre>
+        x = y;</pre></code>
+                <ul>
+                    <li><p>This statement assigns to variable x the value contained in variable y. The value of x at the moment this statement is executed is lost and replaced by the value of y.</p></li>
+                    <li><p>Consider also that we are only assigning the value of y to x at the moment of the assignment operation. Therefore, if y changes at a later moment, it will not affect the new value taken by x.</p></li>
+                    <li><p>For example, let's have a look at the following code - I have included the evolution of the content stored in the variables as comments:</p></li>
+                </ul>
+
+        <code class="FCC-code"><pre>
+        // assignment operator
+        #include &lt;iostream&gt;
+        using namespace std;
+
+        int main ()
+        {
+            int a, b;         // a:?,  b:?
+            a = 10;           // a:10, b:?
+            b = 4;            // a:10, b:4
+            a = b;            // a:4,  b:4
+            b = 7;            // a:4,  b:7
+
+            cout &lt;&lt; "a:";
+            cout &lt;&lt; a;
+            cout &lt;&lt; " b:";
+            cout &lt;&lt; b;
+        }</pre></code>
+                <p>This program prints on screen the final values of a and b (4 and 7, respectively). Notice how a was not affected by the final modification of b, even though we declared a = b earlie</p>
+                <p>Assignment operations are expressions that can be evaluated. That means that the assignment itself has a value, and -for fundamental types- this value is the one assigned in the operation. For example:</p>
+        <code class="FCC-code"><pre>
+        y = 2 + (x = 5);</pre></code>       
+                <p>In this expression, y is assigned the result of adding 2 and the value of another assignment expression (which has itself a value of 5). It is roughly equivalent to:</p>
+        <code class="FCC-code"><pre>
+        x = 5;
+        y = 2 + x;</pre></code> 
+                <p>With the final result of assigning 7 to y.</p>
+                <p>The following expression is also valid in C++:</p>
+        <code class="FCC-code"><pre>
+        x = y = z = 6;</pre></code>          
+                <p>It assigns 5 to the all three variables: x, y and z; always from right-to-left.</p>
+            </section>
+            
+
+            <section class="main-section" id="Basic_input/output">
+                <header>Basic input/output</header>
+                <p>The example programs of the previous sections provided little interaction with the user, if any at all. They simply printed simple values on screen, but the standard library provides many additional ways to interact with the user via its input/output features. This section will present a short introduction to some of the most useful.</p>
+                <p>C++ uses a convenient abstraction called streams to perform input and output operations in sequential media such as the screen, the keyboard or a file. A stream is an entity where a program can either insert or extract characters to/from. There is no need to know details about the media associated to the stream or any of its internal specifications. All we need to know is that streams are a source/destination of characters, and that these characters are provided/accepted sequentially (i.e., one after another).</p>
+                <p>The standard library defines a handful of stream objects that can be used to access what are considered the standard sources and destinations of characters by the environment where the program runs:</p>
+           
+                <table>
+                        <tr>
+                          <th>stream</th>
+                          <th>description</th>
+                        </tr>
+                        <tr>
+                          <td>cin/td>
+                          <td>standard input stream</td>
+                        </tr>
+                        <tr>
+                          <td>cout</td>
+                          <td>standard output stream</td>
+                        </tr>
+                        <tr>
+                          <td>cerr</td>
+                          <td>standard output stream</td>
+                        </tr>
+                        <tr>
+                          <td>clog</td>
+                          <td>standard logging (output stream</td>
+                        </tr>
+                      </table>    
+                      <br><br>   
+            </section>
+            <footer>Information related to C++ can be found <a href="http://www.cplusplus.com/" alt="link to cpp information">here</a> </footer>           
+        </main>
+
+
+    </body>
+
+</html>
